@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="399.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.MainPage">
+   <children>
+      <TabPane layoutY="53.0" prefHeight="347.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+        <tabs>
+          <Tab fx:id="userManagementTab" disable="true" text="User Management">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="520.0">
+                     <children>
+                        <ListView fx:id="driverListField" layoutX="14.0" layoutY="29.0" prefHeight="278.0" prefWidth="120.0" visible="false" />
+                        <ListView fx:id="managerListField" layoutX="147.0" layoutY="30.0" prefHeight="278.0" prefWidth="120.0" visible="false" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Drivers" visible="false" />
+                        <Label layoutX="147.0" layoutY="15.0" text="Managers" visible="false" />
+                        <ListView fx:id="userListField" layoutX="14.0" layoutY="32.0" prefHeight="273.0" prefWidth="244.0" />
+                        <Label alignment="CENTER" layoutX="19.0" layoutY="14.0" prefHeight="17.0" prefWidth="230.0" text="Users" />
+                        <TextField fx:id="loginField" layoutX="308.0" layoutY="23.0" prefHeight="25.0" prefWidth="174.0" promptText="login" />
+                        <TextField fx:id="nameField" layoutX="308.0" layoutY="55.0" prefHeight="25.0" prefWidth="174.0" promptText="name" />
+                        <TextField fx:id="surnameField" layoutX="308.0" layoutY="88.0" prefHeight="25.0" prefWidth="174.0" promptText="surname" />
+                        <PasswordField fx:id="pswField" disable="true" layoutX="308.0" layoutY="125.0" prefHeight="25.0" prefWidth="174.0" promptText="password" visible="false" />
+                        <PasswordField fx:id="repPswField" disable="true" layoutX="308.0" layoutY="158.0" prefHeight="25.0" prefWidth="174.0" promptText="repeat password" visible="false" />
+                        <DatePicker fx:id="bDateField" layoutX="308.0" layoutY="192.0" promptText="birth date" />
+                        <TextField fx:id="phoneNumField" layoutX="308.0" layoutY="226.0" prefHeight="25.0" prefWidth="174.0" promptText="phone number" />
+                        <TextField fx:id="managerEmailField" disable="true" layoutX="495.0" layoutY="91.0" prefHeight="25.0" prefWidth="174.0" promptText="manager e-mail" />
+                        <RadioButton fx:id="radioD" layoutX="495.0" layoutY="30.0" mnemonicParsing="false" onAction="#disableFields" text="Driver">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="userType" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioM" layoutX="495.0" layoutY="62.0" mnemonicParsing="false" onAction="#disableFields" text="Manager" toggleGroup="$userType">
+                        </RadioButton>
+                        <DatePicker fx:id="medCertField" disable="true" layoutX="495.0" layoutY="128.0" promptText="med certificate date" />
+                        <TextField fx:id="medCertNum" disable="true" layoutX="495.0" layoutY="161.0" prefHeight="25.0" prefWidth="174.0" promptText="med certificate number" />
+                        <TextField fx:id="driverLicenseField" disable="true" layoutX="495.0" layoutY="195.0" prefHeight="25.0" prefWidth="174.0" promptText="driver license" />
+                        <Button fx:id="createUserButton" disable="true" layoutX="308.0" layoutY="269.0" mnemonicParsing="false" onAction="#createNewUser" text="Create" visible="false" />
+                        <Button fx:id="updateUserButton" disable="true" layoutX="383.0" layoutY="271.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="89.0" text="Update" visible="false" />
+                        <Button fx:id="deleteUserButton" disable="true" layoutX="530.0" layoutY="271.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="76.0" text="Delete" visible="false" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Cargo Management">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="cargoListField" layoutX="14.0" layoutY="28.0" prefHeight="278.0" prefWidth="200.0" />
+                        <Label layoutX="52.0" layoutY="11.0" text="Company owned cargo" />
+                        <TextField fx:id="titleField" layoutX="226.0" layoutY="28.0" promptText="Enter title:" />
+                        <TextField fx:id="weightField" layoutX="226.0" layoutY="81.0" promptText="Enter weight:" />
+                        <TextField fx:id="customerField" layoutX="226.0" layoutY="139.0" promptText="Enter customer:" />
+                        <ComboBox fx:id="cargoTypeField" layoutX="412.0" layoutY="139.0" prefWidth="150.0" promptText="Cargo type" />
+                        <TextField fx:id="descriptionField" alignment="TOP_LEFT" layoutX="226.0" layoutY="181.0" prefHeight="122.0" prefWidth="447.0" promptText="Add description:" />
+                        <Button fx:id="updateCargoButton" disable="true" layoutX="412.0" layoutY="28.0" mnemonicParsing="false" onAction="#updateCargo" text="Update" visible="false" />
+                        <Button fx:id="deleteCargoButton" disable="true" layoutX="510.0" layoutY="28.0" mnemonicParsing="false" onAction="#deleteCargo" text="Delete" visible="false" />
+                        <Button fx:id="addCargoButton" disable="true" layoutX="412.0" layoutY="81.0" mnemonicParsing="false" onAction="#addCargo" prefHeight="25.0" prefWidth="150.0" text="Add" visible="false" />
+                        <Label fx:id="cargoDateCreated" layoutX="576.0" layoutY="32.0" text="Label" visible="false" />
+                        <Label fx:id="cargoDateUpdated" layoutX="576.0" layoutY="85.0" text="Label" visible="false" />
+                        <Label fx:id="cargoSelectedType" layoutX="576.0" layoutY="143.0" text="Label" visible="false" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Truck Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="makeField" layoutX="226.0" layoutY="28.0" promptText="Enter make:" />
+                        <TextField fx:id="odometerField" layoutX="510.0" layoutY="28.0" prefHeight="25.0" prefWidth="51.0" promptText="km" />
+                        <TextField fx:id="modelField" layoutX="226.0" layoutY="81.0" promptText="Enter model:" />
+                        <TextField fx:id="tankCapacityField" layoutX="510.0" layoutY="81.0" prefHeight="25.0" prefWidth="51.0" promptText="litres" />
+                        <TextField fx:id="yearField" layoutX="226.0" layoutY="139.0" promptText="Enter year:" />
+                        <ComboBox fx:id="tyreTypeField" layoutX="412.0" layoutY="139.0" prefWidth="150.0" promptText="Tyre type" />
+                        <ListView fx:id="truckListField" layoutX="14.0" layoutY="28.0" prefHeight="278.0" prefWidth="200.0" />
+                        <Label layoutX="52.0" layoutY="11.0" text="Company owned trucks" />
+                        <Label layoutX="412.0" layoutY="32.0" text="Odometer:" />
+                        <Label layoutX="412.0" layoutY="85.0" text="Fuel tank capacity:" />
+                        <Button fx:id="createTruckButton" disable="true" layoutX="226.0" layoutY="227.0" mnemonicParsing="false" onAction="#createTruck" prefHeight="25.0" prefWidth="79.0" text="Add" visible="false" />
+                        <Button fx:id="updateTruckButton" disable="true" layoutX="339.0" layoutY="227.0" mnemonicParsing="false" onAction="#updateTruck" prefHeight="25.0" prefWidth="89.0" text="Update" visible="false" />
+                        <Button fx:id="deleteTruckButton" disable="true" layoutX="486.0" layoutY="227.0" mnemonicParsing="false" onAction="#deleteTruck" prefHeight="25.0" prefWidth="76.0" text="Delete" visible="false" />
+                        <Label fx:id="selectedTruckTyre" layoutX="411.0" layoutY="176.0" prefHeight="17.0" prefWidth="150.0" text="Label" visible="false" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#updateDestInfo" text="Destination Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="destinationListField" layoutX="14.0" layoutY="28.0" prefHeight="278.0" prefWidth="200.0" />
+                        <Label layoutX="81.0" layoutY="11.0" text="Destinations" />
+                        <ListView fx:id="unAssignedCheckpointList" layoutX="234.0" layoutY="93.0" prefHeight="90.0" prefWidth="200.0" />
+                        <ListView fx:id="assignedManagers" layoutX="484.0" layoutY="122.0" prefHeight="90.0" prefWidth="200.0" />
+                        <ListView fx:id="unAssignedManagers" layoutX="484.0" layoutY="216.0" prefHeight="90.0" prefWidth="200.0" />
+                        <Label layoutX="176.0" layoutY="130.0" rotate="-90.0" text="Other Checkpoints" />
+                        <Label layoutX="408.0" layoutY="159.0" rotate="-90.0" text="Responsible managers" />
+                        <Label layoutX="433.0" layoutY="253.0" rotate="-90.0" text="Other managers" />
+                        <Button fx:id="assignManagerButton" disable="true" layoutX="434.0" layoutY="249.0" mnemonicParsing="false" onAction="#assignManager" rotate="-90.0" text="Assign" visible="false" />
+                        <Button fx:id="unAssignManagerButton" disable="true" layoutX="417.0" layoutY="155.0" mnemonicParsing="false" onAction="#unAssignManager" rotate="-90.0" text="Unassign" visible="false" />
+                        <ListView fx:id="assignedCheckpointList" layoutX="234.0" layoutY="209.0" prefHeight="90.0" prefWidth="200.0" />
+                        <Label layoutX="168.0" layoutY="246.0" rotate="-90.0" text="Assigned checkpoints" />
+                        <Button fx:id="assignCheckpointButton" disable="true" layoutX="383.0" layoutY="183.0" mnemonicParsing="false" onAction="#assignCheckpoint" text="Assign" visible="false" />
+                        <Button fx:id="unAssignCheckpointButton" disable="true" layoutX="234.0" layoutY="183.0" mnemonicParsing="false" onAction="#unAssignCheckpoint" text="Unassign" visible="false" />
+                        <TextField fx:id="startLnField" layoutX="226.0" layoutY="28.0" prefHeight="25.0" prefWidth="70.0" promptText="Start Ln:" />
+                        <TextField fx:id="endLnField" layoutX="226.0" layoutY="64.0" prefHeight="25.0" prefWidth="70.0" promptText="End Ln:" />
+                        <TextField fx:id="startLatField" layoutX="310.0" layoutY="28.0" prefHeight="25.0" prefWidth="70.0" promptText="Start Lat:" />
+                        <TextField fx:id="endLatField" layoutX="310.0" layoutY="64.0" prefHeight="25.0" prefWidth="70.0" promptText="End Lat:" />
+                        <TextField fx:id="startCityField" layoutX="394.0" layoutY="29.0" prefHeight="25.0" prefWidth="70.0" promptText="Start City:" />
+                        <TextField fx:id="endCityField" layoutX="394.0" layoutY="64.0" prefHeight="25.0" prefWidth="70.0" promptText="End City:" />
+                        <Button fx:id="addDestinationButton" disable="true" layoutX="638.0" layoutY="16.0" mnemonicParsing="false" onAction="#addDestination" text="Add" visible="false" />
+                        <Button fx:id="deleteDestinationButton" disable="true" layoutX="631.0" layoutY="88.0" mnemonicParsing="false" onAction="#deleteDestination" text="Delete" visible="false" />
+                        <Button fx:id="updateDestinationButton" disable="true" layoutX="629.0" layoutY="52.0" mnemonicParsing="false" onAction="#updateDestination" text="Update" visible="false" />
+                        <ListView fx:id="truckListDestField" layoutX="485.0" layoutY="11.0" prefHeight="108.0" prefWidth="63.0" />
+                        <Label fx:id="selectedDestCargo" layoutX="599.0" layoutY="56.0" rotate="90.0" text="sample text" visible="false" />
+                        <ListView fx:id="cargoListDestField" layoutX="548.0" layoutY="11.0" prefHeight="108.0" prefWidth="63.0" />
+                        <Label fx:id="selectedDestTruck" layoutX="436.0" layoutY="57.0" rotate="-90.0" text="sample text" visible="false" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Checkpoints">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="checkpointListField" layoutX="14.0" layoutY="28.0" prefHeight="278.0" prefWidth="200.0" />
+                        <Label layoutX="81.0" layoutY="11.0" text="Checkpoints" />
+                        <TextField fx:id="titleCheckpointField" layoutX="226.0" layoutY="28.0" promptText="Enter title:" />
+                        <CheckBox fx:id="longStopCheck" layoutX="408.0" layoutY="32.0" mnemonicParsing="false" text="Long stop" />
+                        <Button fx:id="createCheckpointButton" disable="true" layoutX="230.0" layoutY="73.0" mnemonicParsing="false" onAction="#createCheckpoint" prefHeight="25.0" prefWidth="100.0" text="Add" visible="false" />
+                        <Button fx:id="updateCheckpointButton" disable="true" layoutX="360.0" layoutY="73.0" mnemonicParsing="false" onAction="#updateCheckpoint" prefHeight="25.0" prefWidth="100.0" text="Update" visible="false" />
+                        <Button fx:id="deleteCheckpointButton" disable="true" layoutX="490.0" layoutY="73.0" mnemonicParsing="false" onAction="#deleteCheckpoint" prefHeight="25.0" prefWidth="100.0" text="Delete" visible="false" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToForum" text="Forum" />
+   </children>
+</AnchorPane>
